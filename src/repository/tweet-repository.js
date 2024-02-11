@@ -21,7 +21,7 @@ class TweetRepository {
 
     async getWithComments(id){
         try {
-            const tweet = await Tweet.findById(id).populate( {path:'comments'} );   // {path:'comments'} aise likne ka karan ye hai ki , comments array k indr initailize hai. {'comments'} sirf tb likhne jb array k andr naa ho.
+            const tweet = await Tweet.findById(id).populate( {path:'comments'} ).lean();   // {path:'comments'} aise likne ka karan ye hai ki , comments array k indr initailize hai. {'comments'} sirf tb likhne jb array k andr naa ho. //lean functiom gives simple/plane javascript object not mongoose object. It is used for slight optimization
             return tweet;
         } catch (error) {
             console.log(error)
@@ -40,6 +40,18 @@ class TweetRepository {
     async destroy(id){
         try {
             const tweet = await Tweet.findByIdAndRemove(id);
+            return tweet;
+        } catch (error) {
+            console.log(error)
+        } 
+    }
+
+    // We use getAll function based on pagination.
+    // Pagination is the process of separating content into pages.
+
+    async getAll(offset , limit){
+        try {
+            const tweet = await Tweet.find().skip(offset).limit(limit);
             return tweet;
         } catch (error) {
             console.log(error)

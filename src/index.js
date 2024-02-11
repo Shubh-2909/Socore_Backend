@@ -32,6 +32,10 @@ app.listen(3000 , async ()=>{
     // tweet.comments.push(comment);
     // await tweet.save();
     // console.log(tweet);
-    const tweet = await tweetRepo.getWithComments('65c79dd8e915c971c3f07a4b');
-    console.log(tweet);
-})
+    // const tweet = await tweetRepo.getWithComments('65c79dd8e915c971c3f07a4b');
+    // console.log(tweet);
+    // const tweet = await tweetRepo.getAll(2,4);  //First 2 will be skipped and then 4 will be shown
+    // console.log(tweet);
+    const tweet = await tweetRepo.getAll(0,4);
+    console.log(tweet[0].contentWithEmail);
+});

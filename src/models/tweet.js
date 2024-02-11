@@ -25,5 +25,11 @@ const tweetScema = new mongoose.Schema({
     ]
 } , {timestamps:true});
 
+// In Mongoose, a virtual is a property that is not stored in MongoDB. Virtuals are typically used for computed properties on documents.
+// Virtuals computed during the run time.
+tweetScema.virtual('contentWithEmail').get(function process(){
+    return `${this.content} \nCreated by: ${this.userEmail}`;
+})
+
 const Tweet =mongoose.model("Tweet",tweetScema);  //Tweet will be the name of Schema
 module.exports=Tweet;
