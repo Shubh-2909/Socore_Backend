@@ -3,10 +3,8 @@ const mongoose = require('mongoose');
 const tweetScema = new mongoose.Schema({
     content:{
         type:String,
-        required:true
-    },
-    userEmail:{
-        type:String
+        required:true,
+        max: [250 , 'Tweet cannot be more than 250 characters']   //second parameter is the error that we will be throwing when the character limit exceeds 250.
     },
     // comments:[   // We use [] , this shows multiple comments means array.
     //     {
@@ -17,10 +15,16 @@ const tweetScema = new mongoose.Schema({
     //     }
     // ]  // This is the example of nesting
     // If we dont comments as this , then  we can make comment model all together different and associate to it.
-    comments : [
+    // comments : [
+    //     {
+    //         type: mongoose.Schema.Types.ObjectId,
+    //         ref: 'Comment'
+    //     }
+    // ]
+    hashtags: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'Comment'
+            ref:'Hashtag'
         }
     ]
 } , {timestamps:true});
