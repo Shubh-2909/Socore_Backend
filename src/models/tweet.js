@@ -31,5 +31,12 @@ tweetScema.virtual('contentWithEmail').get(function process(){
     return `${this.content} \nCreated by: ${this.userEmail}`;
 })
 
+// Hooks
+// tweetScema.pre('save' , function(next){
+//     console.log('Inside a hook');
+//     this.content = this.content + '....';
+//     next();
+// })
+
 const Tweet =mongoose.model("Tweet",tweetScema);  //Tweet will be the name of Schema
 module.exports=Tweet;
