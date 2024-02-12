@@ -1,7 +1,12 @@
-const express = require('express');
-const connect = require('./config/database');
+// Converting project into ES6 moduling to Common-js moduling , for that we use "type":"module" in package.json
+// const express = require('express');
+// const connect = require('./config/database');
+// const app = express();
+import express from "express";
+import {connect} from './config/database.js';
 const app = express();
 
+import TweetService from './services/tweet-service.js'
 // const Tweet = require('./models/tweet')
 // const TweetRepository = require('./repository/tweet-repository');
 // const Comment = require('./models/comment')
@@ -64,7 +69,6 @@ app.listen(3000 , async ()=>{
     //         tweets: []
     //     }
     // ])
-    // let service = new TweetService();
-    // const tweet = await service.create({content : 'my #working twitter !!'})
-    // console.log(tweet);
+    let service = new TweetService();
+    service.create({content : '#refactroing the code in #ES-6 moduling from #common-js moduling'})
 });

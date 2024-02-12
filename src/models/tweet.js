@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 const tweetScema = new mongoose.Schema({
     content:{
@@ -43,4 +43,5 @@ tweetScema.virtual('contentWithEmail').get(function process(){
 // })
 
 const Tweet =mongoose.model("Tweet",tweetScema);  //Tweet will be the name of Schema
-module.exports=Tweet;
+// module.exports=Tweet;
+export default Tweet;
