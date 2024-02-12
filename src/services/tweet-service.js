@@ -17,7 +17,7 @@ class TweetService{
         */
        // Anywhere let is used because , aage map function lga k same variable me change krna tha isliye use kiya.
        let tags = content.match(/#[a-zA-Z0-9_]+/g); // this regex extracts hashtags
-       tags = tags.map((tag) => tag.substring(1));
+       tags = tags.map((tag) => tag.substring(1)).map(tag => tag.toLowerCase()); //another map is for to lowercase the hashtags
        const tweet = await this.tweetRepository.create(data);
        let alreadyPresentTags = await this.hashtagRepository.findByName(tags);
        // ['excited' , 'coding' , 'js' , 'career'] -> [{title : 'excited'} , {title : 'career'}] // We do have excited and career , remaining ones we have to store.

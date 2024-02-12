@@ -70,5 +70,5 @@ app.listen(3000 , async ()=>{
     //     }
     // ])
     let service = new TweetService();
-    service.create({content : '#refactroing the code in #ES-6 moduling from #common-js moduling'})
+    service.create({content : 'my other #CoDE #works or #NOT ?'})
 });

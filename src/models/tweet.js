@@ -14,19 +14,13 @@ const tweetScema = new mongoose.Schema({
     //         }
     //     }
     // ]  // This is the example of nesting
-    // If we dont comments as this , then  we can make comment model all together different and associate to it.
+    // If we dont want comments as this , then  we can make comment model all together different and associate to it.
     // comments : [
     //     {
     //         type: mongoose.Schema.Types.ObjectId,
     //         ref: 'Comment'
     //     }
     // ]
-    hashtags: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref:'Hashtag'
-        }
-    ]
 } , {timestamps:true});
 
 // In Mongoose, a virtual is a property that is not stored in MongoDB. Virtuals are typically used for computed properties on documents.
