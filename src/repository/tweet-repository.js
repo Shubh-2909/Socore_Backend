@@ -28,14 +28,15 @@ class TweetRepository {
         } 
     }
 
-    async update(tweetId , data){
-        try {
-            const tweet = await Tweet.findByIdAndUpdate(tweetId , data , {new:true});
-            return tweet;
-        } catch (error) {
-            console.log(error)
-        } 
-    }
+    // We are not giving access to user to update a tweet
+    // async update(tweetId , data){
+    //     try {
+    //         const tweet = await Tweet.findByIdAndUpdate(tweetId , data , {new:true});
+    //         return tweet;
+    //     } catch (error) {
+    //         console.log(error)
+    //     } 
+    // }
 
     async destroy(id){
         try {

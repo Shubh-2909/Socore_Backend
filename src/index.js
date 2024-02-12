@@ -3,8 +3,10 @@ const connect = require('./config/database');
 const app = express();
 
 // const Tweet = require('./models/tweet')
-const TweetRepository = require('./repository/tweet-repository');
-const Comment = require('./models/comment')
+// const TweetRepository = require('./repository/tweet-repository');
+// const Comment = require('./models/comment')
+// const HashtagRepository = require('./repository/hashtag-repository');
+// const TweetService = require('./services/tweet-service')
 
 app.listen(3000 , async ()=>{
     console.log(`Server Started`)
@@ -21,7 +23,7 @@ app.listen(3000 , async ()=>{
     // tweet.userEmail = 'b@c.com';
     // await tweet.save();
     // *****
-    const tweetRepo  = new TweetRepository();
+    // const tweetRepo  = new TweetRepository();
     // const tweet = await tweetRepo.update('65c78c4f0318ebcdbf423944' , {content: "2nd time Updated Tweet 1"});
     // console.log(tweet); //In this it will show the previous data but it update the data in the mongodb database. We use findByIdAndUpdate in Repository layer , it works like that only , it find by id and print it and then update it into the database. to get rid of this we use {new: true } in the repo layer as the parameter of findByIdAndUpdate.
     // const tweet = await tweetRepo.create({content :  'my tweet'});
@@ -38,5 +40,31 @@ app.listen(3000 , async ()=>{
     // console.log(tweet);
     // const tweet = await tweetRepo.getAll(0,4);
     // console.log(tweet[0].contentWithEmail);
-    await tweetRepo.create({content : 'With Hooks'});
+    // await tweetRepo.create({content : 'With Hooks'});
+    // let repo = new HashtagRepository();
+    // await repo.bulkCreate([
+    //     {
+    //         title: 'Trend',
+    //         tweets: []
+    //     } , 
+    //     {
+    //         title: 'Excited',
+    //         tweets: []
+    //     } ,
+    //     {
+    //         title: 'Python',
+    //         tweets: []
+    //     } , 
+    //     {
+    //         title: 'Fun',
+    //         tweets: []
+    //     },
+    //     {
+    //         title: 'Career',
+    //         tweets: []
+    //     }
+    // ])
+    // let service = new TweetService();
+    // const tweet = await service.create({content : 'my #working twitter !!'})
+    // console.log(tweet);
 });
