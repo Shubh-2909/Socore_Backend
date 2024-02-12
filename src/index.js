@@ -3,8 +3,15 @@
 // const connect = require('./config/database');
 // const app = express();
 import express from "express";
+import bodyParser from "body-parser";
 import {connect} from './config/database.js';
+import apiRoutes from './routes/index.js';
+
 const app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
+app.use('/api' , apiRoutes);
+
 
 import TweetService from './services/tweet-service.js'
 // const Tweet = require('./models/tweet')
@@ -69,6 +76,6 @@ app.listen(3000 , async ()=>{
     //         tweets: []
     //     }
     // ])
-    let service = new TweetService();
-    service.create({content : 'my other #CoDE #works or #NOT ?'})
+    // let service = new TweetService();
+    // service.create({content : 'Myself #Shubh'})
 });
