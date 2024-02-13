@@ -58,6 +58,15 @@ class TweetRepository {
             console.log(error)
         } 
     }
+
+    async find(id){
+        try {
+            const tweet = await Tweet.findById(id).populate({path : 'likes'});  // Populate is only applied on mongoose object only (should not be on final query object) and when this convert into query object then it returns , because await is waiting for it to convert.
+            return tweet;
+        } catch (error) {
+            console.log(error);   
+        }
+    }
 }
 
 export default TweetRepository;
