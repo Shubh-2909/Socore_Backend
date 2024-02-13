@@ -1,27 +1,32 @@
 import mongoose from "mongoose";
 
-const commentScema = new mongoose.Schema({
-    content:{
-        type:String,
-        required:true
+const commentSchema = new mongoose.Schema({
+    content: {
+        type: String,
+        required: true,
     },
-    userId:{
+    userId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
-        required:true
+        required: true
     },
     onModel: {
-        type:String,
-        required:true,
-        enum : ['Tweet' , 'Comment']
+        type: String,
+        required: true,
+        enum: ['Tweet', 'Comment']
     },
     commentable: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'onModel',
-        required:true
-    }
-} , {timestamps:true});
+        required: true,
+        refPath: 'onModel'
+    },
+    comments: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Comment',
+        }
+    ]
+}, {timestamps: true});
 
-const Comment =mongoose.model("Comment",commentScema);  //Tweet will be the name of Schema
-// module.exports=Comment;
+const Comment = mongoose.model('Comment', commentSchema);
 export default Comment;
