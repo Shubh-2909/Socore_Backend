@@ -93,3 +93,14 @@ app.listen(3000 , async ()=>{
     // await likeService.toggleLike(tweet[0].id , 'Tweet' , user[0].id);
 
 });
+
+
+
+
+// * User Verification
+// * user-> unique_id
+// * https://www.mywebsite.com/verifyEmail/sgdiughdljljt3n
+// * 
+// * verifyEmail/:unique_id -> decrypttoken (unique_id) -> {id:2fd6 , email 426edw}
+// * 
+// * db -> userid -> unique_id -> craetedAt -> isVerified
