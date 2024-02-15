@@ -32,7 +32,10 @@ const tweetScema = new mongoose.Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Comment'
         }
-    ]
+    ],
+    image:{
+        type:String
+    }
 } , {timestamps:true});
 
 // In Mongoose, a virtual is a property that is not stored in MongoDB. Virtuals are typically used for computed properties on documents.
