@@ -21,7 +21,7 @@ const upload = multer({
             cb(null, {fieldName: file.fieldname});
         },
         key: function (req, file, cb) {
-            cb(null, Date.now().toString())
+            cb(null, Date.now().toString())   // This is for url if i do "tweet"+Date.now().toString() then it append tweet keyword before date and time in link
         }
     })
 });

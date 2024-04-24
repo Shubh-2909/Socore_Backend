@@ -9,9 +9,20 @@ import apiRoutes from './routes/index.js';
 import {UserRepository , TweetRepository} from './repository/index.js'
 import passort from 'passport';
 import {passportAuth} from './config/jwt-middleware.js'
+import cors  from "cors";
 
 import LikeService from "./services/like-service.js";
+
+const corsOptions = {
+    origin: "http://localhost:5173/",
+    methods: "GET , POST , PUT , DELETE , PATCH , HEAD",
+    credentials : true
+};
+
+
+
 const app = express();
+app.use(cors(corsOptions)); 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use('/api' , apiRoutes);
